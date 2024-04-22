@@ -7,6 +7,7 @@ import LoginForm from "../../features/users/LoginForm";
 import Profile from "../../features/users/Profile";
 import CompanyDetails from "../../features/users/CompanyDetails";
 import CompanyForm from "../../features/users/CompanyForm";
+import Company_Jobs_Details from "../../features/users/Company_Jobs_Details";
 
 export const routes: RouteObject[] = [
     {
@@ -45,6 +46,14 @@ export const routes: RouteObject[] = [
             {
                 path: "profile/:username/createCompany",
                 element: <CompanyForm />
+            },
+            {
+                path: "profile/:username/company/:id/:id/details",
+                element: <Company_Jobs_Details />
+            },
+            {
+                path: "company/:id/createJob",
+                element: <JobForm key="create"/>
             }
         ]
     }

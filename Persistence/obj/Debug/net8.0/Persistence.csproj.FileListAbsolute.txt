@@ -29,3 +29,4 @@ D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\Persistence\obj\Debug\net8.
 D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\Persistence\obj\Debug\net8.0\refint\Persistence.dll
 D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\Persistence\obj\Debug\net8.0\Persistence.pdb
 D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\Persistence\obj\Debug\net8.0\ref\Persistence.dll
+D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\Persistence\obj\Debug\net8.0\Persistence.sourcelink.json

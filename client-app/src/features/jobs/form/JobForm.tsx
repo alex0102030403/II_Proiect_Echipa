@@ -21,8 +21,12 @@ export default observer(function JobForm() {
     const {jobStore} = useStore();
     const {selectedJob, createJob, updateJob, loading, loadJob, loadingInitial } = jobStore;
 
-    const {id} = useParams();
+    //const {id} = useParams();
     const navigate = useNavigate();
+
+    const pathname = window.location.pathname;
+    const parts = pathname.split('/');
+    const companyId = parts[parts.length - 2];
 
     const [job, setJob] = useState<Job>({
         id: '',
@@ -32,7 +36,8 @@ export default observer(function JobForm() {
         category: '',
         city: '',
         country: '',
-        company: ''
+        isClosed: false
+        
     });
 
     const validationSchema = Yup.object({
@@ -42,17 +47,17 @@ export default observer(function JobForm() {
         category: Yup.string().required('The job category is required'),
         city: Yup.string().required('The job city is required'),
         country: Yup.string().required('The job country is required'),
-        company: Yup.string().required('The job company is required'),
+       
     })
 
-    useEffect(() => {
-        if (id) loadJob(id).then(job => setJob(job!))
-    }, [id, loadJob]);
+    
 
     function handleFormSubmit(job: Job) {
         if(!job.id){
             job.id = uuid();
-            createJob(job).then(() => navigate(`/jobs/${job.id}`))
+            console.log(job)
+            console.log(companyId)
+            createJob(companyId,job).then(() => navigate(`/jobs/${job.id}`))
         }else{
             updateJob(job).then(() => navigate(`/jobs/${job.id}`))
         }
@@ -78,7 +83,7 @@ export default observer(function JobForm() {
             
             <MyTextInput type="date" placeholder='Date' name='date' />
             <MySelectInput options={categoryOptions} placeholder='Category' name='category' />
-            <MyTextInput placeholder='Company' name='company' />
+            
             <Header content='Location Details' sub color='teal' />
             <MyTextInput placeholder='City' name='city' />
             <MyTextInput placeholder='Country' name='country' />

@@ -33,3 +33,4 @@ D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\Application\obj\Debug\net8.
 D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\Application\obj\Debug\net8.0\refint\Application.dll
 D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\Application\obj\Debug\net8.0\Application.pdb
 D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\Application\obj\Debug\net8.0\ref\Application.dll
+D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\Application\obj\Debug\net8.0\Application.sourcelink.json

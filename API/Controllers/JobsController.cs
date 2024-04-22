@@ -15,14 +15,14 @@ namespace API.Controllers
         
         [AllowAnonymous]
         [HttpGet] //api/Jobs
-        public async Task<ActionResult<List<JobDto>>> GetJobs()
+        public async Task<ActionResult<List<Job>>> GetJobs()
         {
             return await Mediator.Send(new List.Query());
         }
 
         [AllowAnonymous]
         [HttpGet("{id}")] //api/Jobs/id
-        public async Task<ActionResult<JobDto>> GetJob(Guid id)
+        public async Task<ActionResult<Job>> GetJob(Guid id)
         {
             return await Mediator.Send(new Details.Query{Id = id});
         }

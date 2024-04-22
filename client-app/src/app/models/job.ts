@@ -1,3 +1,5 @@
+import { User } from "./user";
+
 export interface Job {
     id: string;
     title: string;
@@ -6,6 +8,7 @@ export interface Job {
     category: string;
     city: string;
     country: string;
-    company: string;
+    isClosed: boolean;
+    applicants: User[];
 }
     

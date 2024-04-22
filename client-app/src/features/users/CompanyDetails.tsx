@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import UserStore from '../../app/stores/userStore';
-import { Card, Grid, Header } from 'semantic-ui-react';
+import { Button, Card, Grid, Header } from 'semantic-ui-react';
 import { observer } from 'mobx-react-lite';
 import { store, useStore } from '../../app/stores/store';
 import { all } from 'axios';
@@ -8,6 +8,7 @@ import { User } from '../../app/models/user';
 import { get, set } from 'mobx';
 import { Company } from '../../app/models/company';
 import { Job } from '../../app/models/job';
+import { Link } from 'react-router-dom';
 
 
 
@@ -41,8 +42,6 @@ export default observer(function CompanyDetails() {
         const companys = CompanyList.find((company) => company.id === companyId);
         setCompany(companys);
 
-        
-
         //console.log(company);
             
                 const fetchData = async () => {
@@ -69,8 +68,6 @@ export default observer(function CompanyDetails() {
                         });
                         }
                         
-
-                        
                 }
                 catch (error){
                     console.log(error);
@@ -89,6 +86,7 @@ export default observer(function CompanyDetails() {
                 <Card.Header>{company?.name}</Card.Header>
                 <Card.Meta>{company?.description}</Card.Meta>
               </Card.Content>
+              <Button content="Add Job" as={Link} to={`/company/${company?.id}/createJob`} />
             </Card>
           </Grid.Row>
     
@@ -115,6 +113,7 @@ export default observer(function CompanyDetails() {
                     <Card.Content>
                       <Card.Header>{job.title}</Card.Header>
                       <Card.Meta>{job.category}</Card.Meta>
+                      <Button content="See Details" as={Link} to={`${job.id}/details`}/>
                     </Card.Content>
                   </Card>
                 ))}

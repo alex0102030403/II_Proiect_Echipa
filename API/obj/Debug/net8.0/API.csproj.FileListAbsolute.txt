@@ -325,3 +325,4 @@ D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\API\obj\Debug\net8.0\refint
 D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\API\obj\Debug\net8.0\API.pdb
 D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\API\obj\Debug\net8.0\ref\API.dll
+D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\API\obj\Debug\net8.0\API.sourcelink.json

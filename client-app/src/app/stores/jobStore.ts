@@ -1,5 +1,6 @@
 import { action, makeAutoObservable, makeObservable, observable, runInAction } from "mobx";
 import { Job } from "../models/job";
+import { Company } from "../models/company";
 import agent from "../api/agent";
 import {v4 as uuid} from 'uuid';
 
@@ -60,11 +61,11 @@ export default class JobStore{
         this.loadingInitial = state;
     }
 
-    createJob = async (job: Job) => {
+    createJob = async (companyId: string,job: Job) => {
         this.loading = true;
         job.id = uuid();
         try{
-            await agent.Jobs.create(job);
+            await agent.Companys.addJob(companyId,job);
             runInAction(() => {
                 this.jobRegistry.set(job.id, job);
                 this.selectedJob = job;

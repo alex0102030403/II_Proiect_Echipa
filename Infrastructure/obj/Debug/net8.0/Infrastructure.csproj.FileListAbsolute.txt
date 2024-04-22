@@ -37,3 +37,4 @@ D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\Infrastructure\obj\Debug\ne
 D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\Infrastructure\obj\Debug\net8.0\refint\Infrastructure.dll
 D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\Infrastructure\obj\Debug\net8.0\Infrastructure.pdb
 D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+D:\Faculta_3\2\II\ProiectGit\ProiectII_LinkedIn-main\Infrastructure\obj\Debug\net8.0\Infrastructure.sourcelink.json

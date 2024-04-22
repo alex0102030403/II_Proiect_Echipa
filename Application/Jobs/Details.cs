@@ -10,14 +10,14 @@ namespace Application.Jobs
 {
     public class Details
     {
-        public class Query : IRequest<JobDto> {
+        public class Query : IRequest<Job> {
 
             public Guid Id { get; set; }
 
 
         }
 
-        public class Handler : IRequestHandler<Query, JobDto>
+        public class Handler : IRequestHandler<Query, Job>
         {
             private readonly DataContext _context;
             private readonly IMapper _mapper;
@@ -27,10 +27,10 @@ namespace Application.Jobs
                 _context = context;
             }
 
-            public async Task<JobDto> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<Job> Handle(Query request, CancellationToken cancellationToken)
             {
                 var job = await _context.Jobs
-                    .ProjectTo<JobDto>(_mapper.ConfigurationProvider)
+                    .ProjectTo<Job>(_mapper.ConfigurationProvider)
                     .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
 
                 return job;
