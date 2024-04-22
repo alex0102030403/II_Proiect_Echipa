@@ -3,6 +3,8 @@ import { useStore } from "../../app/stores/store";
 import { Job } from "../../app/models/job";
 import { Button, Card, Header, List, Segment } from "semantic-ui-react";
 import { User } from "../../app/models/user";
+import agent from "../../app/api/agent";
+import { set } from "mobx";
 
 export default function Company_Jobs_Details() {
     
@@ -21,6 +23,8 @@ export default function Company_Jobs_Details() {
 
     const jobId = parts[parts.length - 2 ];
 
+    const companyId = parts[parts.length - 3];
+
     useEffect(() =>{
 
         
@@ -32,12 +36,19 @@ export default function Company_Jobs_Details() {
                 //console.log(job);
                 setCurrentJob(job);   
 
-                job.applicants.map(async (applicante) => {
+                const allUsers = job.applicants.map(async (applicante) => {
                     //console.log(applicante.appUserId);
                     const user = await getUserDetails(applicante.appUserId);
-                    console.log(user);
-                    setApplicant([...applicant, user])
+                    //console.log(user);
+                    return user;
+                    
                 });
+
+                const userData = await Promise.all(allUsers);
+                if(userData){
+                    setApplicant(userData);
+                }
+                
                 
         }
         catch (error){
@@ -49,9 +60,29 @@ export default function Company_Jobs_Details() {
        
         fetchData();
 
-        console.log(applicant)
+        
 
-    }, [jobId]);
+    }, []);
+    const [user,setUser] = React.useState<User>(
+        {
+            id: '',
+            username: '',
+            displayName: '',
+            email: '',
+            token: '',
+            image: '',
+            roles: []
+        }
+    );
+
+    function handleHire(emailu: string){
+        
+        user.email = emailu;
+        console.log(user)
+        console.log("Hire button clicked");
+        console.log(applicant);
+        agent.Companys.addEmployee(companyId,user);    
+    }
     
     return (
         <div>
@@ -64,12 +95,12 @@ export default function Company_Jobs_Details() {
 
                     <Header as="h3">Applicants</Header>
                     <List divided relaxed>
-                        {applicant.map(applicant => (
-                            <Card key={applicant.id}>
+                        {applicant.map(app => (
+                            <Card key={app.id}>
                                 <Card.Content>
-                                    <Card.Header>{applicant.displayName}</Card.Header>
-                                    <Card.Description>{applicant.email}</Card.Description>
-                                    <Button primary content="Hire" />
+                                    <Card.Header>{app.displayName}</Card.Header>
+                                    <Card.Description>{app.email}</Card.Description>
+                                    <Button onClick={()=>handleHire(app.email)} primary content="Hire" />
                                 </Card.Content>
                             </Card>
                         ))}

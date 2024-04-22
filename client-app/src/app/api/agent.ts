@@ -49,7 +49,8 @@ const Jobs = {
     details: (id: string) => requests.get<Job>(`/jobs/${id}`),
     create: (job: Job) => requests.post<void>('/jobs', job),
     update: (job: Job) => requests.put<void>(`/jobs/${job.id}`, job),
-    delete: (id: string) => requests.del<void>(`/jobs/${id}`)
+    delete: (id: string) => requests.del<void>(`/jobs/${id}`),
+    apply: (id: string) => requests.post<void>(`/jobs/${id}/apply`, {})
 
 }
 
@@ -66,7 +67,7 @@ const Users = {
 
 const Companys = {
     list: () => requests.get<Company[]>('/company'),
-    addEmployee: (id: string , user : User) => requests.post<void>(`/company/${id}/addEmployee`, user),
+    addEmployee: (id: string, user: User) => requests.post<User>(`/company/${id}/addEmployee`,user),
     removeEmployee: (id: string) => requests.del<void>(`/company/${id}/removeEmployee`),
     addJob: (id: string,job : Job) => requests.post<Job>(`/company/${id}/addJob`, job),
     details: (id: string) => requests.get<Company>(`/company/${id}`),

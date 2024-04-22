@@ -28,9 +28,7 @@ export default function JobsListItem({job}: Props) {
                     <Icon name='marker' /> {job.city}, {job.country}
                 </span>
             </Segment>
-            <Segment secondary>
-                Attendees go here
-            </Segment>
+            
             <Segment clearing>
                 <span>{job.description}</span>
                 <Button as={Link} to={`/jobs/${job.id}`} color='teal' floated='right' content='View' />

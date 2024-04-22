@@ -1,8 +1,9 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react'
+import React, { useEffect } from 'react'
 import {Button, Header, Item, Segment, Image} from 'semantic-ui-react'
 import {Job} from "../../../app/models/job";
 import { Link } from 'react-router-dom';
+import agent from '../../../app/api/agent';
 
 const activityImageStyle = {
     filter: 'brightness(30%)'
@@ -17,11 +18,29 @@ const activityImageTextStyle = {
     color: 'white'
 };
 
+var id = "";
+
+
+
+function handleApply(){
+    console.log("Apply button clicked");
+    console.log(id);
+    agent.Jobs.apply(id);
+}
+
 interface Props {
     job: Job
 }
 
+
 export default observer (function ActivityDetailedHeader({job}: Props) {
+    useEffect(() => {
+        const path = window.location.pathname;
+        const parts = path.split('/');
+        id = parts[parts.length-1];
+        
+        console.log("heo");
+    },[]);
     return (
         <Segment.Group>
             <Segment basic attached='top' style={{padding: '0'}}>
@@ -45,11 +64,8 @@ export default observer (function ActivityDetailedHeader({job}: Props) {
                 </Segment>
             </Segment>
             <Segment clearing attached='bottom'>
-                <Button color='teal'>Join Activity</Button>
-                <Button>Cancel attendance</Button>
-                <Button as={Link} to={`/manage/${job.id}`} color='orange' floated='right'>
-                    Manage Event
-                </Button>
+                <Button color='teal' onClick={handleApply}>Apply</Button>
+                
             </Segment>
         </Segment.Group>
     )
