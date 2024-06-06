@@ -9,6 +9,7 @@ import { User } from '../../app/models/user';
 import { Button, Card, Grid, Header, Icon } from 'semantic-ui-react';
 import agent from '../../app/api/agent';
 import { Link, NavLink } from "react-router-dom";
+import './Some.css';
 
 
 export default observer(function Profile(){
@@ -36,6 +37,7 @@ export default observer(function Profile(){
         window.location.reload();
     }
 
+
     
     return (
         <Grid centered>
@@ -58,7 +60,7 @@ export default observer(function Profile(){
                   
                 </Card.Group>
               </Grid.Column>
-              <Grid.Column width={2} verticalAlign="middle" textAlign="center">
+              <Grid.Column className='to-move' width={2} verticalAlign="middle" textAlign="center">
                 <Button primary icon labelPosition='left' as={Link} to={`createCompany`}>
                   <Icon name='plus' />
                   Create New Company

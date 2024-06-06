@@ -12,7 +12,7 @@ export default observer(function ActivityDetailedChat() {
                 color='teal'
                 style={{border: 'none'}}
             >
-                <Header>Chat about this event</Header>
+            <Header>Chat about this event</Header>
             </Segment>
             <Segment attached>
                 <Comment.Group>

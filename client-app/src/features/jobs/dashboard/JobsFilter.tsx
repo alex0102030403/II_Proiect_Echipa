@@ -9,7 +9,7 @@ export default function JobsFilter() {
         <Menu vertical size='large' style={{ width: '100%', marginTop: '50px' }}>
             <Header icon='filter' attached color='teal' content='Filters' />
             <Menu.Item content='All Jobs' />
-            <Menu.Item content="I'm going" />
+            <Menu.Item content="Favourites" />
             <Menu.Item content="I'm hosting" />
         </Menu>
         <Header />

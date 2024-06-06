@@ -19,9 +19,9 @@ export default observer(function NavBar() {
                 ProiectII
                 </Menu.Item>
                 <Menu.Item as={NavLink} to='/jobs' name="Jobs" />
-                <Menu.Item>
+                {/* <Menu.Item>
                     <Button as={NavLink} to='/createJob' positive content="Add Job" />
-                </Menu.Item>
+                </Menu.Item> */}
                 <Menu.Item position='right'>
                     <Image src={'/icon.png'} avatar spaced='right' />
                     <Dropdown pointing='top left' text={user?.displayName}>

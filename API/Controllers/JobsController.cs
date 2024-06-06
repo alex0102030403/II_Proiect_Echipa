@@ -34,7 +34,8 @@ namespace API.Controllers
             return Ok();
         }
 
-        [Authorize(Policy = "IsJobHost")]
+        //[Authorize(Policy = "IsJobHost")]
+        [AllowAnonymous]
         [HttpPut("{id}")] //api/Jobs/id
         public async Task<IActionResult> EditJob(Guid id, Job job)
         {
@@ -43,7 +44,8 @@ namespace API.Controllers
             return NoContent();
         }
 
-        [Authorize(Policy = "IsJobHost")] //api/Jobs/id
+        //[Authorize(Policy = "IsJobHost")] //api/Jobs/id
+        [AllowAnonymous]
         [HttpDelete("{id}")] //api/Jobs/id
         public async Task<IActionResult> DeleteJob(Guid id)
         {
